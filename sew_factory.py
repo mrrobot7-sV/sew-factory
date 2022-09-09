@@ -1,15 +1,14 @@
 # Riddle 1: Machines & Shirts
 '''
 It takes 5 machines, 5 minutes to make 5 t-shirts
+
 NOTE: Therefore, each machine needs 5 minutes to make 1 t-shirt.
 
 Question: 
 How long will it take 100 machines to make 100 t-shirts?
 
-
-Question:
+Another Question:
 How long will it take x machines to make y t-shirts?
-
 
 Answer: 
 Its probably best to reverse the question to, "How long
@@ -18,6 +17,10 @@ dividing the number of t-shirts with the number of machines
 you know how many t-shirts can be made per machine, multiplied 
 by the constant of 5 minutes per t-shirt you'll get the total 
 time it takes to create the t-shirts.
+
+NOTE: In this program some additional conditions have been added to 
+make sure that the total time is valid for both uneven and 
+even number of machines/shirts.
 '''
 
 # time in minutes per t-shirt.
