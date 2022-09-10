@@ -52,28 +52,31 @@ class ValueNotANumberError(ValueError):
         self.message = message
         super().__init__(self.message)
 
-# main method
-print("Sewing Factory (calculator):")
-question_m = "How many machines can be used? "
-question_t = "How many t-shirts need to be made? "
-question = "Quit the program (y) or do another calculation (n)? [y/n] "
-valid_choice = {"yes": True, "y": True, "ye": True, "no": False, "n": False}
-quit = False
-while quit == False:
-    try:        
-        m = input(question_m)
-        if m.isalpha(): raise ValueNotANumberError()     
-        t = input(question_t)   
-        if t.isalpha(): raise ValueNotANumberError()       
-        print_time_to_create(int(m), int(t))
-        choice = input(question).lower()
-        if (choice in valid_choice):
-            quit = valid_choice[choice]    
-        else:
-            raise ValueError("Error: Invalid answer: '%s'." % choice)
-    except ValueError as e:
-       print(e)
-       continue
+def main():
+    print("Sewing Factory (calculator):")
+    question_m = "How many machines can be used? "
+    question_t = "How many t-shirts need to be made? "
+    question = "Quit the program (y) or do another calculation (n)? [y/n] "
+    valid_choice = {"yes": True, "y": True, "ye": True, "no": False, "n": False}
+    quit = False
+    while quit == False:
+        try:        
+            m = input(question_m)
+            if m.isalpha(): raise ValueNotANumberError()     
+            t = input(question_t)   
+            if t.isalpha(): raise ValueNotANumberError()       
+            print_time_to_create(int(m), int(t))
+            choice = input(question).lower()
+            if (choice in valid_choice):
+                quit = valid_choice[choice]    
+            else:
+                raise ValueError("Error: Invalid answer: '%s'." % choice)
+        except ValueError as e:
+            print(e)
+            continue
+
+if __name__ == "__main__":
+    main()
 
 # example that uses a list of values for machines and t-shirts to 
 # calculate the t-shirt-creation-times in those situations
