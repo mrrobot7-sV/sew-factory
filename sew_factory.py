@@ -63,9 +63,9 @@ def main():
     while quit == False:
         try:        
             m = input(question_m)
-            if m.isalpha(): raise ValueNotANumberError()     
+            if not m.isnumeric(): raise ValueNotANumberError()     
             t = input(question_t)   
-            if t.isalpha(): raise ValueNotANumberError()       
+            if not t.isnumeric(): raise ValueNotANumberError()       
             print_time_to_create(int(m), int(t))
             choice = input(question).lower()
             if (choice in valid_choice):
