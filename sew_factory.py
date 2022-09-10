@@ -20,24 +20,26 @@ to be created - demonstrating a possible solution for doubling
 the workload, i.e. creating the t-shirts twice as fast.
 '''
 # time in minutes per t-shirt.
-TIMETAKEN_TSHIRT = 5
+TIMETAKEN_TSHIRT = 5.0
 
 # calculate the time to create a t-shirt(s) with a given number
 # of machines and t-shirts to create.
 def get_time_to_create_tshirt(m, t):
+
     if (m >= t):
-        # if there are twice the amount of machines, double the workload
-        if (m / t == 2):
-            return float((t / m) * TIMETAKEN_TSHIRT)
-        return TIMETAKEN_TSHIRT * 1.0
+        # if there are twice the amount of machines, double the workload                
+        if ((t * 2) <= m): 
+            m = t * 2 # use twice as many machines
+            return float((t / m) * TIMETAKEN_TSHIRT)    
+        return TIMETAKEN_TSHIRT
 
     if (t % m > 0):
         rest = t % m
-        time_default = float(((t - rest) / m) * TIMETAKEN_TSHIRT)
-        time_rest = TIMETAKEN_TSHIRT * 1.0
-        return time_default + time_rest
+        time = float(((t - rest) / m) * TIMETAKEN_TSHIRT)
+        time_rest = TIMETAKEN_TSHIRT
+        return time + time_rest
     elif (t % m == 0):
-        return float((t / m) * TIMETAKEN_TSHIRT)
+        return float((t / m) * TIMETAKEN_TSHIRT)    
 
 # print the time it takes in minutes for a given number of
 # machines and t-shirts

@@ -56,8 +56,14 @@ def test_h():
 
 # ===================================================== #
 
-# i. same amount of machines and t-shirts:
+# i. misc
 def test_i():
+
+    # same amount of machines and t-shirts
     assert sew_factory.get_time_to_create_tshirt(20, 20) == 5.0
     assert sew_factory.get_time_to_create_tshirt(35, 35) == 5.0
     assert sew_factory.get_time_to_create_tshirt(122, 122) == 5.0
+
+    # twice as fast (double workload)
+    assert sew_factory.get_time_to_create_tshirt(100, 23) == 2.5
+    assert sew_factory.get_time_to_create_tshirt(200, 23) == 2.5
