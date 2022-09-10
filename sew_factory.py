@@ -58,8 +58,8 @@ def main():
     print("Sewing Factory (calculator):")
     question_m = "How many machines can be used? "
     question_t = "How many t-shirts need to be made? "
-    question = "Quit the program (y) or do another calculation (n)? [y/n] "
-    valid_choice = {"yes": True, "y": True, "ye": True, "no": False, "n": False}
+    question = "Quit the program (q) or do another calculation (y)? [q/y] "
+    valid_choice = {"yes": False, "y": False, "ye": False, "quit": True, "q": True}
     quit = False
     while quit == False:
         try:        
