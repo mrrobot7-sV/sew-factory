@@ -25,8 +25,7 @@ def test_c():
 def test_d():
     assert sew_factory.get_time_to_create_tshirt(12, 9) == 5.0
     assert sew_factory.get_time_to_create_tshirt(16, 9) == 5.0
-    # doubling the workload (twice as fast)
-    assert sew_factory.get_time_to_create_tshirt(18, 9) == 2.5
+    assert sew_factory.get_time_to_create_tshirt(18, 9) == 5.0
 
 # ==================== even t-shirts ================== #
 
@@ -64,6 +63,13 @@ def test_i():
     assert sew_factory.get_time_to_create_tshirt(35, 35) == 5.0
     assert sew_factory.get_time_to_create_tshirt(122, 122) == 5.0
 
+    # twice as fast (default)
+    assert sew_factory.get_time_to_create_tshirt(18, 9) == 5.0
+    assert sew_factory.get_time_to_create_tshirt(100, 23) == 5.0
+    assert sew_factory.get_time_to_create_tshirt(200, 23) == 5.0
+    assert sew_factory.get_time_to_create_tshirt(500, 3) == 5.0
     # twice as fast (double workload)
-    assert sew_factory.get_time_to_create_tshirt(100, 23) == 2.5
-    assert sew_factory.get_time_to_create_tshirt(200, 23) == 2.5
+    assert sew_factory.get_time_to_create_tshirt(18, 9, True) == 2.5
+    assert sew_factory.get_time_to_create_tshirt(100, 23, True) == 2.5
+    assert sew_factory.get_time_to_create_tshirt(200, 23, True) == 2.5
+    assert sew_factory.get_time_to_create_tshirt(500, 3, True) == 2.5

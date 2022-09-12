@@ -24,11 +24,11 @@ TIMETAKEN_TSHIRT = 5.0
 
 # calculate the time to create a t-shirt(s) with a given number
 # of machines and t-shirts to create.
-def get_time_to_create_tshirt(m, t):
+def get_time_to_create_tshirt(m, t, workload = False):
     if (m >= t):
         # double the workload when there are twice the amount of
         # shirts and available machines.
-        if ((t * 2) <= m): 
+        if ((t * 2) <= m) & workload: 
             m = t * 2 # use twice as many machines
             return float((t / m) * TIMETAKEN_TSHIRT)    
         return TIMETAKEN_TSHIRT
